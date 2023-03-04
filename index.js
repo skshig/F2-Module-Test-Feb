@@ -1,14 +1,14 @@
 //this function opens a modal upon clicking Create New Psot button
-function openForm(){
+function openForm() {
     let openform = document.getElementById('modal-container').style.display = "flex";
     // console.log("hello");
 }
 //this function closes the modal upon clicking x button
-function closeForm (){
+function closeForm() {
     let closeform = document.getElementById('modal-container').style.display = "none";
 }
 //by clicking Publsih Post in modal the blog should be displayed on the screen
-function publishBlog(){
+function publishBlog() {
     var liList = document.getElementById('list-item').getElementsByTagName("li");
 
     var post_index = liList.length + 1
@@ -30,34 +30,56 @@ function publishBlog(){
     <span id = "time-stamp">Created at: ${createdAt()}</span>
     </div>`
     blog_list.appendChild(new_blog);
+    document.getElementById('new-blog-heading').value = "";
+    document.getElementById('new-blog-description').value = "";
     closeForm();
 }
 //fetching date-time at which a blog was published
-function createdAt(){
-        const blog_timestamp = new Date().toLocaleString();
-        return blog_timestamp;
+function createdAt() {
+    const blog_timestamp = new Date().toLocaleString();
+    return blog_timestamp;
 }
 //edit a published blog
-function editPost(x){
+function editPost(x) {
     let element_index = x.target.id;
     console.log(element_index);
     var edit_title = document.getElementById(`blog-title-${element_index}`).textContent;
     var desc = document.getElementById(`blog-content-${element_index}`).textContent;
-    editForm(edit_title,desc,element_index);
+    editForm(edit_title, desc, element_index);
     console.log(edit_title);
     console.log(desc);
 
 }
-function editForm(edit_title,desc,element_index){
+
+function editForm(edit_title, desc, element_index) {
     let open_edit_form = document.getElementById('edit-modal-container').style.display = "flex";
     document.getElementById('edit-description').value = desc;
     document.getElementById('edit-heading').value = edit_title;
+    document.getElementById('edit-index').value = element_index;
 }
-function closeEditForm (){
+
+function closeEditForm() {
     let closeform = document.getElementById('edit-modal-container').style.display = "none";
 }
 //delete a published blog
-function deletePost(){
+function deletePost() {
     let delete_post = document.getElementById('blog-post').style.display = "none";
     return delete_post;
+}
+
+function editFormSavePost() {
+    let edit_post_title = document.getElementById('edit-heading').value;
+    let edit_post_desc = document.getElementById('edit-description').value;
+    let post_index = document.getElementById('edit-index').value;
+    document.getElementById(`blog-title-${post_index}`).textContent = edit_post_title;
+    document.getElementById(`blog-content-${post_index}`).textContent = edit_post_desc;
+    closeEditForm();
+}
+
+function editFormDeletePost() {
+    console.log("Inside Delete Post Flow");
+    let post_index = document.getElementById('edit-index').value;
+    console.log(post_index);
+    document.getElementById(`blog-post-${post_index}`).style.display = "none";
+    closeEditForm();
 }
