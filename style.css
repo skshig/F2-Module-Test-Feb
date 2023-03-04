@@ -44,7 +44,7 @@
 .main-container .blog-post > section{
     margin: 10px 0px 14px 15px;
 }
-.modal-container{
+.modal-container, .edit-modal-container{
     background-color:aliceblue;
     display: none;
     align-content: center;
@@ -53,13 +53,14 @@
     top: 25%;
     left: 25%;
 }
-.modal-container .modal-form{
+.modal-container .modal-form,.edit-modal-container .edit-modal-form{
     height: 400px;
     width: 700px;
     color: black;
     /* position: fixed; */
     margin-left: 20px;
 }
+
 #close{
     margin-left: 71px;
     margin-top: 100px;
