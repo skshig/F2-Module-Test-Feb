@@ -22,10 +22,10 @@ function publishBlog(){
     <p id = "blog-content-${post_index}">${blog_description}</p>
     <span>
         <label for="edit-button"></label>
-        <input type="button" name="edit-button" class = "edit-button" id="${post_index}" onclick = 'editPost(event)' value="Edit Post">
+        <input type="button" name="edit-button" class="edit-button" id="${post_index}" onclick = 'editPost(event)' value="Edit Post">
     <span>
         <label for="delete-button"></label>
-        <input type="button" name="delete-button" id="delete-button" onclick = 'deletePost()' value="Delete Post"></span>
+        <input type="button" name="delete-button" class="delete-button" id="delete-button" onclick = 'deletePost()' value="Delete Post"></span>
     </span>
     <span id = "time-stamp">Created at: ${createdAt()}</span>
     </div>`
@@ -39,17 +39,22 @@ function createdAt(){
 }
 //edit a published blog
 function editPost(x){
-    editForm();
     let element_index = x.target.id;
     console.log(element_index);
     var edit_title = document.getElementById(`blog-title-${element_index}`).textContent;
     var desc = document.getElementById(`blog-content-${element_index}`).textContent;
+    editForm(edit_title,desc,element_index);
     console.log(edit_title);
     console.log(desc);
 
 }
-function editForm(){
+function editForm(edit_title,desc,element_index){
     let open_edit_form = document.getElementById('edit-modal-container').style.display = "flex";
+    document.getElementById('edit-description').value = desc;
+    document.getElementById('edit-heading').value = edit_title;
+}
+function closeEditForm (){
+    let closeform = document.getElementById('edit-modal-container').style.display = "none";
 }
 //delete a published blog
 function deletePost(){
