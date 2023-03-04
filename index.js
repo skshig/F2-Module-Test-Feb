@@ -25,7 +25,7 @@ function publishBlog() {
         <input type="button" name="edit-button" class="edit-button" id="${post_index}" onclick = 'editPost(event)' value="Edit Post">
     <span>
         <label for="delete-button"></label>
-        <input type="button" name="delete-button" class="delete-button" id="delete-button" onclick = 'deletePost()' value="Delete Post"></span>
+        <input type="button" name="delete-button" class="delete-button" id="${post_index}" onclick = 'deletePost(event)' value="Delete Post"></span>
     </span>
     <span id = "time-stamp">Created at: ${createdAt()}</span>
     </div>`
@@ -62,9 +62,9 @@ function closeEditForm() {
     let closeform = document.getElementById('edit-modal-container').style.display = "none";
 }
 //delete a published blog
-function deletePost() {
-    let delete_post = document.getElementById('blog-post').style.display = "none";
-    return delete_post;
+function deletePost(x) {
+    let element_index = x.target.id;
+    document.getElementById(`blog-post-${element_index}`).style.display = "none";
 }
 
 function editFormSavePost() {
