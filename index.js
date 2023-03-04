@@ -1,6 +1,7 @@
 function openForm(){
-    let openform = document.getElementById('header-button"').style.display = "block";
+    let openform = document.getElementById('modal-container').style.display = "flex";
+    console.log("hello")
 }
-function closeForm{
+function closeForm (){
     let closeform = document.getElementById('close').style.display = "none";
 }
