@@ -61,21 +61,20 @@
                     <label for="delete-button"></label>
                     <input type="button" name="delete-button" id="delete-button" value="Delete Post"></span>
                 </span>
-                <span><h5>Created at: </h5></span>
             </section> -->
         </div>
-        <div class="modal-container" id="modal-container">
-            <form action="" class="modal-form">
+        <div class="edit-modal-container" id="edit-modal-container">
+            <form action="" class="edit-modal-form">
                 <h3>Edit a Post</h3>
                 <!-- blog title -->
-                <div class="new-blog-heading">
-                    <label for="new-blog-heading"></label>
-                    <input type="text" name="new-blog-heading" id="new-blog-heading" placeholder="Enter your heading...">
+                <div class="edit-heading">
+                    <label for="edit-heading"></label>
+                    <input type="text" name="edit-heading" id="edit-heading" value="">
                 </div>
-                <!-- blog description -->
+                <!-- description -->
                 <div> 
-                    <label for="new-blog-description"></label>
-                    <input type="textarea" name="new-blog-description" id="new-blog-description" placeholder="Enter your blog post...">
+                    <label for="edit-description"></label>
+                    <input type="textarea" name="edit-description" id="edit-description" placeholder="Enter your blog post...">
                     <!-- close button -->
                     <button type="button" id = 'close' class="close" data-dismiss="modal" aria-label="Close" onclick="closeForm()">
                         <span aria-hidden="true">&times;</span>
